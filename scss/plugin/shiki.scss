@@ -1,0 +1,171 @@
+@use "sass:map";
+@use "../icon/lucide" as *;
+@use "../icon/catppuccin" as *;
+
+body.obsidian-app .expressive-code {
+  --shiki-code-block-spacing: var(--p-spacing);
+}
+
+body.obsidian-app .expressive-code {
+  box-shadow: var(--shadow-s);
+
+  // Normalize the frame header and convert the title into a flexbox for icons
+  .frame .header {
+    min-height: 2.75em;
+    font-family: var(--font-monospace);
+    font-size: var(--font-smaller);
+    line-height: 1.4;
+
+    .title {
+      display: flex;
+      gap: var(--size-2-6);
+      align-items: center;
+    }
+  }
+
+  // Styles the frame tabs
+  .frame.has-title:not(.is-terminal) {
+    .title {
+      padding-block: var(--size-2-2);
+      border-radius: var(--code-radius) var(--code-radius) 0 0;
+
+      &::after {
+        content: unset;
+      }
+    }
+
+    pre {
+      border-top-right-radius: var(--code-radius);
+    }
+  }
+
+  // Styles the frame title to align left with a bottom divider
+  .frame.is-terminal .header {
+    justify-content: start;
+    padding-inline: var(--size-4-4);
+    border-bottom: 1px solid var(--background-primary);
+
+    &::before,
+    &::after {
+      content: unset;
+    }
+  }
+
+  // Moves the scroll region to the <code> element
+  pre {
+    position: relative;
+    overflow-x: hidden;
+    border: 1px solid var(--code-background);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      width: var(--size-4-2);
+      pointer-events: none;
+      content: "";
+    }
+
+    &::before {
+      left: 0;
+      background-image: linear-gradient(90deg, var(--code-background), transparent);
+    }
+
+    &::after {
+      right: 0;
+      background-image: linear-gradient(90deg, transparent, var(--code-background));
+    }
+
+    > code {
+      overflow-x: auto;
+    }
+  }
+
+  // Updates the style of the copy-to-clipboard button
+  .copy {
+    .feedback,
+    button div {
+      display: none;
+    }
+
+    button {
+      width: var(--icon-s);
+      height: var(--icon-s);
+      transition: var(--transition);
+      transform: scale(0);
+
+      &::after {
+        margin: 0;
+        background-color: var(--text-faint);
+        mask-image: url("#{map.get($icon-lucide, 'clipboard')}");
+        mask-size: cover;
+        transition: var(--transition);
+      }
+    }
+
+    .feedback + button::after {
+      background-color: var(--color-green);
+      mask-image: url("#{map.get($icon-lucide, 'check')}");
+    }
+  }
+
+  .frame:hover .copy button {
+    transform: scale(1);
+  }
+}
+
+// Styles for callout embedded codeblocks
+body.obsidian-app .callout-content .expressive-code {
+  border: 1px solid var(--background-primary);
+  border-radius: var(--code-radius);
+}
+
+// Removes the top or bottom margin from the first or last code block
+.markdown-rendered > .markdown-preview-section {
+  > div.mod-header + .el-pre .expressive-code {
+    margin-top: 0;
+  }
+
+  > div:last-child .expressive-code {
+    margin-bottom: 0;
+  }
+}
+
+// Automatically adds language-based icons to the frame title
+@mixin icon($icon) {
+  .expressive-code .frame .header .title::before {
+    display: block;
+    flex-shrink: 0;
+    width: var(--icon-xs);
+    height: var(--icon-xs);
+    content: "";
+    background-color: var(--code-icon-color);
+    mask-image: url("#{$icon}");
+    mask-size: cover;
+  }
+}
+
+@each $language, $icon in $icon-code {
+  .block-language-#{$language} {
+    @include icon($icon);
+  }
+}
+
+$map: (
+  desktop: "properties",
+  ini: "properties",
+  js: "javascript",
+  json: "json",
+  scss: "sass",
+  sh: "bash",
+  sql: "database",
+  ts: "typescript",
+);
+
+@each $language, $icon in $map {
+  .block-language-#{$language} {
+    @include icon(map.get($icon-code, $icon));
+  }
+}

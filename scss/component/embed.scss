@@ -1,0 +1,192 @@
+body.obsidian-app {
+  --embed-block-shadow-hover: none;
+  --embed-max-height: 300px;
+}
+
+.popover.hover-popover {
+  --file-margins: var(--size-4-6);
+}
+
+// Allows rendering beyond the embed area
+.markdown-source-view.mod-cm6 .cm-content > .cm-embed-block[contenteditable="false"] {
+  contain: none !important;
+}
+
+.cm-embed-block:hover {
+  overflow: visible !important;
+}
+
+img,
+audio,
+video,
+iframe,
+.internal-embed.pdf-embed {
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+}
+
+.image-embed {
+  display: block;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+video {
+  overflow: hidden;
+  background-color: var(--media-background);
+}
+
+audio {
+  border-radius: var(--radius-m);
+
+  &::-webkit-media-controls-enclosure {
+    background-color: var(--media-background);
+    border: none;
+  }
+}
+
+.el-iframe {
+  margin-block: var(--p-spacing);
+}
+
+iframe:not(.external-embed) {
+  width: 100%;
+  aspect-ratio: 12/16;
+}
+
+iframe[src^="https://www.youtube.com/"],
+iframe[src^="https:/youtube.com/"] {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+// Styles for internal generic file embed previews
+.file-embed {
+  padding: var(--size-4-2) var(--size-4-3) !important;
+  font-family: var(--h3-font);
+  font-weight: var(--font-medium);
+  background-color: initial !important;
+  border: 1px solid var(--divider-color);
+
+  &,
+  svg {
+    color: var(--text-muted);
+    transition: var(--transition);
+  }
+
+  &:hover,
+  &:hover svg {
+    color: var(--text-normal);
+  }
+}
+
+.file-embed,
+.file-embed-title {
+  justify-content: flex-start;
+  font-size: var(--font-small);
+}
+
+// Styles for internal markdown embed previews
+.internal-embed.markdown-embed {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-m);
+
+  .embed-title {
+    padding: var(--size-4-2) var(--size-4-4);
+    font-family: var(--h3-font);
+    white-space: normal;
+    border-bottom: 1px solid var(--divider-color);
+  }
+
+  .markdown-preview-section {
+    padding: var(--size-4-4) !important;
+  }
+
+  .markdown-embed-link {
+    top: var(--size-2-8);
+    right: calc(var(--size-4-4) - var(--size-2-2));
+    background-color: initial;
+    transition: var(--transition);
+  }
+}
+
+body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link {
+  top: var(--size-2-6);
+}
+
+// Styles for PDF file embed previews
+.pdf-embed {
+  .pdf-toolbar {
+    padding-inline: var(--size-4-2) !important;
+    background-color: var(--table-header-background);
+  }
+
+  .pdf-sidebar-container::after {
+    position: absolute;
+    top: 0;
+    right: calc(var(--size-4-2) * -1);
+    bottom: 0;
+    width: var(--size-4-2);
+    content: "";
+    background-image: linear-gradient(90deg, var(--background-primary), transparent);
+  }
+}
+
+// Styles for search result embed previews
+.internal-query {
+  overflow: hidden;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-m);
+
+  .internal-query-header {
+    padding: var(--size-4-2) var(--size-4-4);
+    font-family: var(--h3-font);
+    background-color: var(--table-header-background);
+    border-bottom: 1px solid var(--divider-color);
+  }
+}
+
+.markdown-preview-view .embedded-backlinks {
+  margin-top: var(--size-4-16);
+}
+
+.internal-query .search-result-container {
+  padding: var(--size-4-4) var(--size-4-4) var(--size-2-6);
+  border: none !important;
+}
+
+.search-result-file-matched-text {
+  font-weight: var(--font-bold);
+  color: var(--text-highlight-bg);
+  background-color: transparent;
+}
+
+// Styles the edit block button to cover the entire embed
+.markdown-source-view.mod-cm6 [contenteditable="false"] .edit-block-button,
+.file-embed {
+  cursor: pointer;
+  background-color: unset !important;
+  border-radius: var(--radius-m);
+  outline: 1px solid transparent;
+  outline-offset: -1px;
+  transition: var(--transition);
+
+  &:hover {
+    outline-color: var(--background-modifier-hover);
+  }
+}
+
+.markdown-source-view.mod-cm6 [contenteditable="false"] .edit-block-button {
+  inset: 0;
+  z-index: 9999999;
+
+  svg {
+    display: none;
+  }
+}

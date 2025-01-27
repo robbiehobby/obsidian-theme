@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "sass --no-source-map --style=compressed scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Theme.css\"",
+    "build:local": "sass --no-source-map --style=compressed scss/main.scss public/theme.css",
+    "watch": "sass --no-source-map --watch scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Theme.css\""
+  },
+  "local": {
+    "destination": "$(zx obsidian documents)/Notebook/.obsidian/snippets",
+    "output": "Theme.css"
+  },
+  "devDependencies": {
+    "sass": "^1.82.0"
+  }
+}

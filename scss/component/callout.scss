@@ -1,0 +1,145 @@
+@use "../abstract/mixin" as *;
+
+body.obsidian-app {
+  --callout-blend-mode: none;
+  --callout-border-opacity: 0.4;
+  --callout-border-width: 1px;
+  --callout-opacity: 0.1;
+  --callout-radius: var(--radius-m);
+  --callout-title-size: var(--font-smallest);
+}
+
+.callout[data-callout="attention"] {
+  --callout-color: var(--color-red-rgb);
+}
+
+.callout {
+  --callout-padding: calc(var(--size-4-4) * 0.75) var(--size-4-4) 0;
+  --callout-border-color: color-mix(in oklab, rgb(var(--callout-color)) 50%, black);
+  --callout-background: color-mix(in oklab, rgb(var(--callout-color)) 30%, black);
+  --list-marker-color: rgb(var(--callout-color));
+  --p-spacing: calc(var(--size-4-4) * 0.75);
+
+  // Adds color weights
+  @each $color in white, black {
+    @each $weight in 10, 20, 30, 40, 50, 60, 70, 80, 90 {
+      --callout-#{'' + $color}-#{$weight}: color-mix(in oklab, rgb(var(--callout-color)) #{$weight + "%"}, #{$color});
+    }
+  }
+
+  min-height: var(--size-4-10);
+  margin-block: var(--size-4-4);
+  overflow-x: auto;
+  background-color: var(--callout-background);
+  border: 1px solid var(--callout-border-color);
+  box-shadow: var(--shadow-s);
+}
+
+// Styles for callout types that are icon-less and title-less
+@each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
+  .callout[data-callout="color-#{'' + $color}"],
+  .callout[data-callout="color-#{'' + $color}-compact"],
+  .callout[data-callout="color-#{'' + $color}-outline"] {
+    --callout-color: var(--color-#{$color}-rgb);
+  }
+
+  .callout[data-callout="color-#{'' + $color}-compact"] {
+    padding-block-start: 0;
+  }
+
+  .callout[data-callout="color-#{'' + $color}-outline"] {
+    background-color: var(--background-primary);
+  }
+
+  .callout[data-callout="color-#{'' + $color}"] .callout-icon,
+  .callout[data-callout="color-#{'' + $color}-compact"] .callout-title,
+  .callout[data-callout="color-#{'' + $color}-outline"] .callout-icon {
+    display: none;
+  }
+}
+
+.callout-title {
+  position: relative;
+  gap: var(--size-2-5);
+  align-items: center;
+  max-width: fit-content;
+  margin-block-end: calc(var(--p-spacing) * -0.5);
+  text-transform: uppercase;
+  border-radius: 0 0 var(--radius-s) var(--radius-s);
+}
+
+.callout-title-inner {
+  font-family: var(--font-1);
+}
+
+.callout-content {
+  overflow: visible;
+  font-size: var(--font-small);
+
+  > .callout:first-child {
+    margin-top: calc(var(--p-spacing) * 2) !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: calc(var(--p-spacing) + var(--p-spacing)) !important;
+  }
+
+  h2::before {
+    content: unset;
+  }
+}
+
+// Fixes issues with the bottom spacer in source mode
+.markdown-source-view.mod-cm6.is-live-preview .callout-content > div {
+  margin-bottom: var(--p-spacing);
+}
+
+// Matches the link style to the callout color
+.callout :is(.internal-link, .external-link) {
+  color: var(--callout-white-70);
+
+  &:hover {
+    color: var(--callout-white-50);
+  }
+}
+
+// Matches the inline code style with the callout color
+.callout code:not(pre code) {
+  &,
+  .markdown-rendered & {
+    color: var(--callout-white-50);
+    background-color: unset;
+    outline: 1px solid rgb(var(--callout-color), 0.5);
+  }
+}
+
+// Matches the checkbox style with the callout color
+.callout input[type="checkbox"] {
+  border-color: rgb(var(--callout-color));
+
+  &:checked {
+    background-color: rgb(var(--callout-color));
+  }
+}
+
+// Adjusts the spacing of lists within callout embed previews
+body.obsidian-app:not(.is-mobile) .callout-content {
+  > :is(ul, ol) {
+    margin-inline-start: -0.15em;
+  }
+
+  .task-list-item-checkbox {
+    top: 0.15em;
+  }
+}
+
+body.obsidian-app.is-mobile .callout-content {
+  .task-list-item-checkbox {
+    top: 0.3em;
+  }
+}
