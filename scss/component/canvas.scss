@@ -1,0 +1,47 @@
+.canvas-wrapper {
+  --zoom-multiplier: 1 !important;
+}
+
+.canvas-node {
+  --shadow-border-themed-inset: inset 0 0 0 0 rgb(var(--canvas-color));
+  --shadow-border-themed: 0 0 0 1px rgb(var(--canvas-color));
+
+  // Adds color weights
+  @each $color in white, black {
+    @each $weight in 10, 20, 30, 40, 50, 60, 70, 80, 90 {
+      --canvas-#{'' + $color}-#{$weight}: color-mix(in oklab, rgb(var(--canvas-color)) #{$weight + "%"}, #{$color});
+    }
+  }
+}
+
+.canvas-node-container {
+  border-width: 1px;
+}
+
+.canvas-node.is-themed .canvas-node-container {
+  box-shadow: unset;
+}
+
+.canvas-node.is-themed code:not(pre code) {
+  color: var(--canvas-white-50);
+  background-color: unset;
+  outline: 1px solid rgb(var(--canvas-color), 0.5);
+}
+
+.canvas-group-label {
+  left: 50%;
+  font-size: var(--font-text-size);
+  transform: translate(-50%, -100%);
+}
+
+.canvas-node-group.is-themed .canvas-group-label:not([contenteditable="true"]) {
+  background-color: rgb(var(--canvas-color), 50%);
+}
+
+.canvas-path-label {
+  font-size: var(--font-ui-medium);
+}
+
+.canvas-edges path.canvas-display-path {
+  stroke-width: 1.5px;
+}

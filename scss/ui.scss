@@ -1,0 +1,88 @@
+@use "abstract/animate" as *;
+
+* {
+  scrollbar-width: thin;
+}
+
+body.obsidian-app {
+  --file-line-width: 860px;
+  --font-ui-medium: var(--font-ui-small);
+  --tab-stacked-pane-width: calc(var(--file-line-width) + 160px);
+}
+
+body.obsidian-app:not(.is-mobile) {
+  --file-margins: var(--size-4-16) var(--size-4-6);
+}
+
+.workspace-tabs.mod-stacked {
+  .workspace-tab-header-inner-title {
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+  }
+
+  .workspace-tab-container > .workspace-tab-header:not(.is-active, :hover) {
+    &,
+    .workspace-tab-header-inner-icon {
+      color: var(--text-faint);
+      transition: var(--transition);
+    }
+  }
+}
+
+.nav-header {
+  padding: var(--size-4-4);
+  padding-bottom: var(--size-4-1);
+}
+
+.nav-files-container,
+.workspace-leaf-content .view-content {
+  padding-inline: var(--size-4-4);
+}
+
+.nav-folder,
+.nav-file {
+  margin-block: 5px;
+}
+
+.nav-file-tag {
+  padding: var(--size-2-1) var(--size-2-2);
+  margin-inline-start: var(--size-4-3);
+  line-height: 1;
+  color: var(--nav-file-tag-color);
+  background-color: transparent;
+  border-radius: 2px;
+  outline: 1px dotted var(--nav-file-tag-color);
+}
+
+.nav-folder.is-collapsed > .tree-item-self .tree-item-icon,
+.nav-file-title .tree-item-icon {
+  opacity: 0.5;
+}
+
+.nav-file-title:hover,
+.nav-file-title.is-active {
+  .tree-item-icon {
+    opacity: 1;
+  }
+
+  > .nav-file-tag {
+    color: var(--nav-file-tag-color-active);
+    outline-color: var(--nav-file-tag-color-active);
+  }
+}
+
+.document-search-container > div {
+  padding: 0;
+}
+
+.is-flashing {
+  background-color: initial !important;
+  border-radius: initial;
+  mix-blend-mode: initial;
+  transition: initial;
+  animation: flash 1s both 1;
+}
+
+.tooltip {
+  padding: var(--size-4-2) var(--size-4-4);
+}

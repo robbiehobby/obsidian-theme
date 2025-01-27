@@ -1,0 +1,18 @@
+body {
+  --font-1: "Sora", -apple-system, var(--font-text) !important;
+  --font-2: "Monaspace Krypton Var", var(--font-1) !important;
+
+  --transition: all 0.2s ease-in-out;
+}
+
+.markdown-rendered,
+.markdown-source-view,
+.markdown-reading-view {
+  @each $m in 1, 2, 3, 4, 5, 6, 7, 8 {
+    --size-2-#{$m}: calc(2px * #{$m});
+  }
+
+  @each $m in 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 16, 18 {
+    --size-4-#{$m}: calc(6px * #{$m});
+  }
+}
