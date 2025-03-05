@@ -4,9 +4,12 @@
 
 body.obsidian-app .expressive-code {
   --shiki-code-block-spacing: var(--p-spacing);
+  --border-width: 0;
 }
 
 body.obsidian-app .expressive-code {
+  border: 1px solid var(--divider-color);
+  border-radius: var(--code-radius);
   box-shadow: var(--shadow-s);
 
   // Normalize the frame header and convert the title into a flexbox for icons
@@ -43,7 +46,7 @@ body.obsidian-app .expressive-code {
   .frame.is-terminal .header {
     justify-content: start;
     padding-inline: var(--size-4-4);
-    border-bottom: 1px solid var(--background-primary);
+    padding-bottom: 0;
 
     &::before,
     &::after {
@@ -118,7 +121,7 @@ body.obsidian-app .expressive-code {
 
 // Styles for callout embedded codeblocks
 body.obsidian-app .callout-content .expressive-code {
-  border: 1px solid var(--background-primary);
+  border: 1px solid var(--callout-border-color);
   border-radius: var(--code-radius);
 }
 

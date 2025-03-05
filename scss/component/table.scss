@@ -1,5 +1,4 @@
 body.obsidian-app {
-  --table-header-font: var(--font-1);
   --table-add-button-border-color: var(--table-border-color);
 }
 
@@ -25,6 +24,10 @@ table {
     border: 1px solid var(--table-border-color);
     border-radius: var(--radius-m);
 
+    thead {
+      background-color: var(--table-header-bg);
+    }
+
     tr,
     th,
     td {
@@ -33,15 +36,10 @@ table {
 
     th,
     th * {
-      font-family: var(--table-header-font);
-      font-size: var(--font-smallest);
+      font-size: var(--table-text-size);
       font-weight: var(--table-header-weight);
       line-height: var(--table-line-height);
       color: var(--table-header-color);
-    }
-
-    th {
-      background-color: var(--table-header-background) !important;
     }
 
     td,

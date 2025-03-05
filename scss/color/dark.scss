@@ -1,8 +1,8 @@
 body.theme-dark,
 body.theme-dark.is-mobile {
-  --color-base-00: #0d0e11;
+  --color-base-00: #131720;
   --color-base-10: #202b31;
-  --color-base-20: #0d0e11;
+  --color-base-20: var(--color-base-00);
   --color-base-30: #181a1f;
   --color-base-35: #1d1f25;
   --color-base-40: #282b33;
@@ -30,26 +30,31 @@ body.theme-dark.is-mobile {
   --background-modifier-border: var(--divider-color);
   --background-modifier-form-field: var(--color-base-30);
   --background-modifier-message: var(--color-base-40);
-  --background-modifier-hover: rgb(255 255 255 / 12%);
-  --input-border-width: 0;
-  --interactive-normal: var(--color-base-30);
-  --media-background: #070709;
-  --nav-file-tag-color-active: rgb(255 255 255 / 50%);
-  --nav-file-tag-color: rgb(255 255 255 / 30%);
-  --shadow-s: 0px 4px 15px rgb(0 0 0 / 25%);
-  --titlebar-background-focused: var(--background-primary);
+  --background-modifier-hover: rgb(77 92 128 / 20%);
 
   --h1-color: #eee;
+  --h3-color: var(--color-orange);
+  --h4-color: var(--h3-color);
+  --h5-color: var(--h3-color);
+  --h6-color: var(--h3-color);
+
   --italic-color: hsl(var(--color-accent-hsl));
   --strike-color: var(--color-red);
 
-  --divider-color: #262626;
-  --file-background: #070709;
-  --text-highlight-bg: var(--color-orange);
+  --text-selection: rgb(77 92 128 / 40%);
+  --text-highlight-bg: rgb(77 147 117 / 35%);
 
-  --table-border-color: #262626;
-  --table-header-background: #070709;
+  --titlebar-background-focused: var(--background-primary);
+  --interactive-normal: var(--color-base-30);
+  --divider-color: #2b2e37;
+  --shadow-s: 0px 4px 15px rgb(0 0 0 / 15%);
+
+  --media-bg: #070709;
+  --nav-file-tag-color-active: rgb(255 255 255 / 50%);
+  --nav-file-tag-color: rgb(255 255 255 / 30%);
+
   --table-header-color: rgb(255 255 255 / 42%);
+  --table-header-bg: rgb(0 0 0 / 10%);
 
   --code-background: #181a1f;
   --code-border-color: color-mix(in oklab, #e0a569 56%, black);
@@ -57,8 +62,6 @@ body.theme-dark.is-mobile {
   --code-normal: #e0a569;
 
   --canvas-dot-pattern: rgb(255 255 255 / 20%);
-
-  --shiki-highlight-neutral: var(--text-faint);
 
   * {
     scrollbar-color: #222 transparent;

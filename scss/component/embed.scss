@@ -36,14 +36,14 @@ iframe,
 
 video {
   overflow: hidden;
-  background-color: var(--media-background);
+  background-color: var(--media-bg);
 }
 
 audio {
   border-radius: var(--radius-m);
 
   &::-webkit-media-controls-enclosure {
-    background-color: var(--media-background);
+    background-color: var(--media-bg);
     border: none;
   }
 }
@@ -122,9 +122,11 @@ body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link 
 
 // Styles for PDF file embed previews
 .pdf-embed {
+  --pdf-sidebar-background: var(--media-bg);
+
   .pdf-toolbar {
     padding-inline: var(--size-4-2) !important;
-    background-color: var(--table-header-background);
+    background-color: var(--pdf-sidebar-background);
   }
 
   .pdf-sidebar-container::after {
@@ -134,7 +136,7 @@ body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link 
     bottom: 0;
     width: var(--size-4-2);
     content: "";
-    background-image: linear-gradient(90deg, var(--background-primary), transparent);
+    background-image: linear-gradient(90deg, var(--pdf-sidebar-background), transparent);
   }
 }
 
@@ -147,7 +149,6 @@ body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link 
   .internal-query-header {
     padding: var(--size-4-2) var(--size-4-4);
     font-family: var(--h3-font);
-    background-color: var(--table-header-background);
     border-bottom: 1px solid var(--divider-color);
   }
 }
@@ -163,7 +164,7 @@ body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link 
 
 .search-result-file-matched-text {
   font-weight: var(--font-bold);
-  color: var(--text-highlight-bg);
+  color: var(--color-orange);
   background-color: transparent;
 }
 

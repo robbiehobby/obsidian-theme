@@ -11,7 +11,7 @@ body.obsidian-app {
   --line-height-tighter: 1.6;
 
   --h1-font: var(--font-1);
-  --h2-font: var(--font-2);
+  --h2-font: var(--h1-font);
   --h3-font: var(--h1-font);
   --h4-font: var(--h1-font);
   --h5-font: var(--h1-font);
@@ -57,7 +57,7 @@ body.obsidian-app .inline-title {
 .inline-title,
 h1,
 .HyperMD-header-1 {
-  font-variation-settings: "wght" 620;
+  font-variation-settings: "wght" 625;
 }
 
 h2,
@@ -131,11 +131,9 @@ hr {
   }
 }
 
-mark,
-.markdown-rendered mark,
-.markdown-source-view.mod-cm6.is-live-preview .cm-highlight {
-  color: var(--text-highlight-bg);
-  background-color: transparent;
+mark {
+  padding: 0.1em 0.3em;
+  border-radius: var(--radius-s);
 }
 
 del,
