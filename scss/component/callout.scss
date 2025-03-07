@@ -113,8 +113,8 @@ body.obsidian-app {
   &,
   .markdown-rendered & {
     color: var(--callout-white-50);
-    background-color: unset;
     outline: 1px solid rgb(var(--callout-color), 0.5);
+    background-color: unset;
   }
 }
 

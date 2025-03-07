@@ -172,10 +172,10 @@ body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link 
 .markdown-source-view.mod-cm6 [contenteditable="false"] .edit-block-button,
 .file-embed {
   cursor: pointer;
-  background-color: unset !important;
-  border-radius: var(--radius-m);
   outline: 1px solid transparent;
   outline-offset: -1px;
+  background-color: unset !important;
+  border-radius: var(--radius-m);
   transition: var(--transition);
 
   &:hover {

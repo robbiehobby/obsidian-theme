@@ -96,8 +96,8 @@ body.obsidian-app .expressive-code {
     button {
       width: var(--icon-s);
       height: var(--icon-s);
-      transition: var(--transition);
       transform: scale(0);
+      transition: var(--transition);
 
       &::after {
         margin: 0;

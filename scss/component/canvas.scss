@@ -24,8 +24,8 @@
 
 .canvas-node.is-themed code:not(pre code) {
   color: var(--canvas-white-50);
-  background-color: unset;
   outline: 1px solid rgb(var(--canvas-color), 0.5);
+  background-color: unset;
 }
 
 .canvas-group-label {
