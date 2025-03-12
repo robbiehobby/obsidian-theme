@@ -4,7 +4,8 @@
 
 body.obsidian-app .expressive-code {
   --shiki-code-block-spacing: var(--p-spacing);
-  --border-width: 0;
+  --shiki-highlight-neutral: rgba(var(--color-gray-rgb), 0.3);
+  --shiki-highlight-neutral-background: rgba(var(--color-gray-rgb), 0.2);
 }
 
 body.obsidian-app .expressive-code {
@@ -83,6 +84,14 @@ body.obsidian-app .expressive-code {
 
     > code {
       overflow-x: auto;
+    }
+
+    .ec-line {
+      mark,
+      ins,
+      del {
+        display: inline;
+      }
     }
   }
 
