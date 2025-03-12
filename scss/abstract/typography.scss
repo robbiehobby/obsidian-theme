@@ -22,9 +22,9 @@ body.obsidian-app {
   --h4-weight: var(--h1-weight);
   --h5-weight: var(--h1-weight);
   --h6-weight: var(--h1-weight);
-  --h1-size: 2em;
-  --h2-size: 1.75em;
-  --h3-size: 1.45em;
+  --h1-size: 2.2em;
+  --h2-size: 1.8em;
+  --h3-size: 1.6em;
   --h4-size: 1.35em;
   --h5-size: 1.25em;
   --h6-size: 1.2em;
@@ -57,7 +57,7 @@ body.obsidian-app .inline-title {
 .inline-title,
 h1,
 .HyperMD-header-1 {
-  font-variation-settings: "wght" 625;
+  font-variation-settings: "wght" 600;
 }
 
 h2,
@@ -66,14 +66,20 @@ h2,
 }
 
 h3,
-.HyperMD-header-3,
+.HyperMD-header-3 {
+  font-variation-settings: "wght" 575;
+}
+
 h4,
 .HyperMD-header-4 {
-  font-variation-settings: "wght" 500;
+  font-variation-settings: "wght" 550;
 }
 
 h5,
-.HyperMD-header-5,
+.HyperMD-header-5 {
+  font-variation-settings: "wght" 525;
+}
+
 h6,
 .HyperMD-header-6 {
   font-variation-settings: "wght" 525;
