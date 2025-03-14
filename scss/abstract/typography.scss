@@ -39,6 +39,8 @@ body.obsidian-app {
 
   --checklist-done-color: initial;
   --checklist-done-decoration: none;
+
+  --blockquote-border-thickness: 3px;
 }
 
 body.obsidian-app.is-mobile {
@@ -96,8 +98,7 @@ h6 {
 }
 
 h2,
-.markdown-rendered h2,
-.markdown-source-view.mod-cm6.is-live-preview .HyperMD-header-2 {
+.HyperMD-header-2 {
   padding-top: 0 !important;
   margin-top: var(--size-4-10) !important;
 
@@ -105,6 +106,25 @@ h2,
     @include zig-zag;
 
     margin-bottom: var(--size-4-3);
+  }
+}
+
+h3,
+.HyperMD-header-3,
+h4,
+.HyperMD-header-4,
+h5,
+.HyperMD-header-5,
+h6,
+.HyperMD-header-6 {
+  &::before {
+    display: block;
+    width: var(--size-4-6);
+    height: 3px;
+    margin-block-end: var(--size-4-2);
+    content: "";
+    background-color: var(--h3-color);
+    opacity: 0.5;
   }
 }
 
@@ -131,11 +151,6 @@ hr {
     padding-inline-end: 0;
     background-image: none;
   }
-}
-
-mark {
-  padding: 0.1em 0.3em;
-  border-radius: var(--radius-s);
 }
 
 del,
