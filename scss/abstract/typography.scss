@@ -10,7 +10,7 @@ body.obsidian-app {
   --line-height-tight: 1.8;
   --line-height-tighter: 1.6;
 
-  --h1-font: var(--font-1);
+  --h1-font: var(--font-heading);
   --h2-font: var(--h1-font);
   --h3-font: var(--h1-font);
   --h4-font: var(--h1-font);
@@ -91,7 +91,7 @@ body.obsidian-app .inline-title {
   font-variation-settings: "wght" 525;
 }
 
-:is(h3, h4, h5, h6) {
+:is(.el-h3, h4, h5, h6) {
   &,
   .markdown-rendered & {
     margin-top: var(--heading-spacing) !important;
@@ -109,13 +109,14 @@ body.obsidian-app .inline-title {
   }
 }
 
-:is(h3, .markdown-rendered h3, .HyperMD-header-3) {
+:is(h3, .markdown-rendered h3, .HyperMD-header-3 .cm-header-3) {
   position: relative;
-  display: table !important;
-  padding: 0 0.2em !important;
+  display: inline;
+  padding-inline: 0.2em;
   color: var(--h3-color);
   background-color: var(--h3-bg);
   border-radius: 2px;
+  box-decoration-break: clone;
 
   .heading-collapse-indicator {
     margin-inline-start: calc(-27px);
@@ -123,6 +124,16 @@ body.obsidian-app .inline-title {
 
   .collapse-indicator {
     padding-inline-end: calc(10px) !important;
+  }
+}
+
+.HyperMD-header-3 .cm-header-3.cm-formatting {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  + .cm-header-3 {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 

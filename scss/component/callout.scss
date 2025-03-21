@@ -54,7 +54,7 @@ body.obsidian-app {
   border-radius: 0 0 var(--radius-s) var(--radius-s);
 
   .callout-title-inner {
-    font-family: var(--font-1);
+    font-family: var(--font-heading);
   }
 }
 
@@ -63,6 +63,10 @@ body.obsidian-app {
   z-index: 1;
   overflow: visible;
   font-size: var(--font-small);
+
+  &:has(> h3:first-child) {
+    padding-top: calc(var(--p-spacing) * 2);
+  }
 
   > .callout:first-child {
     margin-top: calc(var(--p-spacing) * 2) !important;
