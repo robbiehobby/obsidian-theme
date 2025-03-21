@@ -144,8 +144,8 @@ h3,
   position: relative;
   display: table !important;
   padding: 0 0.2em !important;
-  color: var(--background-primary);
-  background-color: var(--h3-color);
+  color: var(--h3-color);
+  background-color: var(--h3-bg);
   border-radius: 2px;
 
   .heading-collapse-indicator {
@@ -172,7 +172,7 @@ h6,
     height: 3px;
     margin-block-end: var(--size-4-2);
     content: "";
-    background-color: var(--h3-color);
+    background-color: var(--h3-bg);
     opacity: 0.3;
   }
 }

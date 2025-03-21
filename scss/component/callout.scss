@@ -15,8 +15,7 @@ body.obsidian-app {
 
 .callout {
   --callout-padding: calc(var(--size-4-4) * 0.75) var(--size-4-4) 0;
-  --callout-border-color: color-mix(in oklab, rgb(var(--callout-color)) 50%, black);
-  --callout-background: color-mix(in oklab, rgb(var(--callout-color)) 30%, black);
+  --callout-border-color: rgba(var(--callout-color), 0.4);
   --list-marker-color: rgb(var(--callout-color));
   --p-spacing: calc(var(--size-4-4) * 0.75);
 
@@ -27,12 +26,25 @@ body.obsidian-app {
     }
   }
 
+  position: relative;
   min-height: var(--size-4-10);
   margin-block: var(--size-4-4);
   overflow-x: auto;
-  background-color: var(--callout-background);
+  background-color: var(--background-primary);
   border: 1px solid var(--callout-border-color);
   box-shadow: var(--shadow-s);
+
+  &::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background-color: rgba(var(--callout-color), 0.1);
+    mix-blend-mode: hard-light;
+  }
+}
+
+.callout .callout {
+  background-color: transparent;
 }
 
 // Styles for callout types that are icon-less and title-less
@@ -47,8 +59,8 @@ body.obsidian-app {
     padding-block-start: 0;
   }
 
-  .callout[data-callout="color-#{'' + $color}-outline"] {
-    background-color: var(--background-primary);
+  .callout[data-callout="color-#{'' + $color}-outline"]::before {
+    content: unset;
   }
 
   .callout[data-callout="color-#{'' + $color}"] .callout-icon,
@@ -91,6 +103,16 @@ body.obsidian-app {
 
   h2::before {
     content: unset;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    --h3-bg: rgb(var(--callout-color));
+    --h4-color: var(--h3-bg);
+    --h5-color: var(--h3-bg);
+    --h6-color: var(--h3-bg);
   }
 }
 

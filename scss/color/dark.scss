@@ -32,10 +32,12 @@ body.theme-dark.is-mobile {
   --background-modifier-message: var(--color-base-40);
   --background-modifier-hover: rgb(77 92 128 / 20%);
 
-  --h3-color: var(--color-orange);
-  --h4-color: var(--h3-color);
-  --h5-color: var(--h3-color);
-  --h6-color: var(--h3-color);
+  --h3-color: var(--background-primary);
+  --h4-color: var(--color-orange);
+  --h5-color: var(--color-orange);
+  --h6-color: var(--color-orange);
+
+  --h3-bg: var(--color-orange);
 
   --italic-color: hsl(var(--color-accent-hsl));
   --strike-color: var(--color-red);
