@@ -69,7 +69,7 @@ table {
 // Styles table selection highlights
 .is-selected table :is(th, tr, td),
 table :is(th, tr, td).is-selected {
-  background-color: var(--color-base-05) !important;
+  background-color: var(--table-selection-bg) !important;
 }
 
 // Adjustment of table styles in source mode

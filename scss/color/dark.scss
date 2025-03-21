@@ -32,18 +32,18 @@ body.theme-dark.is-mobile {
   --background-modifier-message: var(--color-base-40);
   --background-modifier-hover: rgb(77 92 128 / 20%);
 
-  --h3-color: var(--background-primary);
-  --h4-color: var(--color-orange);
-  --h5-color: var(--color-orange);
-  --h6-color: var(--color-orange);
+  --h3-background: var(--text-accent);
 
-  --h3-bg: var(--color-orange);
+  --h3-color: var(--background-primary);
+  --h4-color: var(--text-accent);
+  --h5-color: var(--text-accent);
+  --h6-color: var(--text-accent);
 
   --italic-color: hsl(var(--color-accent-hsl));
   --strike-color: var(--color-red);
 
-  --text-selection: rgb(77 92 128 / 40%);
-  --text-highlight-bg: rgb(77 147 117 / 35%);
+  --text-selection: hsl(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
+  --text-highlight-bg: hsl(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
 
   --titlebar-background-focused: var(--background-primary);
   --interactive-normal: var(--color-base-30);
@@ -57,11 +57,12 @@ body.theme-dark.is-mobile {
 
   --table-header-color: rgb(255 255 255 / 42%);
   --table-header-bg: rgb(0 0 0 / 10%);
+  --table-selection-bg: rgb(255 255 255 / 5%);
 
   --code-background: #181a1f;
-  --code-border-color: color-mix(in oklab, var(--color-orange) 60%, black);
+  --code-border-color: color-mix(in oklab, var(--text-accent) 60%, black);
   --code-icon-color: var(--color-base-50);
-  --code-normal: var(--color-orange);
+  --code-normal: var(--text-accent);
 
   --canvas-dot-pattern: rgb(255 255 255 / 20%);
 

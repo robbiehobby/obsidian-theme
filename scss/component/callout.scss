@@ -15,6 +15,7 @@ body.obsidian-app {
 
   --list-marker-color: rgb(var(--callout-color));
   --p-spacing: calc(var(--size-4-4) * 0.75);
+  --text-selection: rgba(var(--callout-color), 0.3);
 
   &[data-callout="attention"] {
     --callout-color: var(--color-red-rgb);
@@ -51,16 +52,27 @@ body.obsidian-app {
 // Styles for icon-less callout colors
 @each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
   .callout[data-callout="#{'' + $color}"],
-  .callout[data-callout="#{'' + $color}-mini"] {
+  .callout[data-callout="#{'' + $color}-small"],
+  .callout[data-callout="#{'' + $color}-outline"],
+  .callout[data-callout="#{'' + $color}-outline-small"] {
     --callout-color: var(--color-#{$color}-rgb);
   }
 
-  .callout[data-callout="#{'' + $color}-mini"] {
+  .callout[data-callout="#{'' + $color}-small"],
+  .callout[data-callout="#{'' + $color}-outline-small"] {
     padding-top: 0;
   }
 
+  .callout[data-callout="#{'' + $color}-outline"],
+  .callout[data-callout="#{'' + $color}-outline-small"] {
+    &::before {
+      background-color: transparent;
+    }
+  }
+
   .callout[data-callout="#{'' + $color}"] .callout-icon,
-  .callout[data-callout="#{'' + $color}-mini"] .callout-title {
+  .callout[data-callout="#{'' + $color}-small"] .callout-title,
+  .callout[data-callout="#{'' + $color}-outline-small"] .callout-title {
     display: none;
   }
 }
@@ -86,7 +98,7 @@ body.obsidian-app {
   font-size: var(--font-small);
 
   &:has(> h3:first-child) {
-    padding-top: calc(var(--p-spacing) * 2);
+    padding-top: calc(var(--p-spacing) * 2) !important;
   }
 
   > .callout:first-child {
@@ -102,10 +114,10 @@ body.obsidian-app {
   }
 
   :is(h3, h4, h5, h6) {
-    --h3-bg: rgb(var(--callout-color));
-    --h4-color: var(--h3-bg);
-    --h5-color: var(--h3-bg);
-    --h6-color: var(--h3-bg);
+    --h3-background: rgb(var(--callout-color));
+    --h4-color: var(--h3-background);
+    --h5-color: var(--h3-background);
+    --h6-color: var(--h3-background);
   }
 }
 
@@ -132,7 +144,7 @@ body.obsidian-app {
 .callout code:not(pre code) {
   &,
   .markdown-rendered & {
-    color: color-mix(in oklab, rgb(var(--callout-color)) 50%, white);
+    color: color-mix(in oklab, rgb(var(--callout-color)) 60%, white);
     outline: 1px solid rgb(var(--callout-color), 0.5);
     background-color: unset;
   }

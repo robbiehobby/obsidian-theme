@@ -32,7 +32,7 @@
 
   // Matches the inline code style with the canvas color
   code:not(pre code) {
-    color: color-mix(in oklab, rgb(var(--canvas-color)) 50%, white);
+    color: color-mix(in oklab, rgb(var(--canvas-color)) 90%, white);
     outline: 1px solid rgb(var(--canvas-color), 0.5);
     background-color: unset;
   }

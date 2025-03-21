@@ -169,6 +169,7 @@ $map: (
   sh: "bash",
   sql: "database",
   ts: "typescript",
+  tsx: "typescript",
 );
 
 @each $language, $icon in $map {

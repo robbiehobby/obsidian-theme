@@ -114,7 +114,7 @@ body.obsidian-app .inline-title {
   display: inline;
   padding-inline: 0.2em;
   color: var(--h3-color);
-  background-color: var(--h3-bg);
+  background-color: var(--h3-background);
   border-radius: 2px;
   box-decoration-break: clone;
 
@@ -146,7 +146,7 @@ body.obsidian-app .inline-title {
     height: 3px;
     margin-block-end: var(--size-4-2);
     content: "";
-    background-color: var(--h3-bg);
+    background-color: var(--h3-background);
     opacity: 0.3;
   }
 }
