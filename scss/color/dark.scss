@@ -58,9 +58,9 @@ body.theme-dark.is-mobile {
   --table-header-bg: rgb(0 0 0 / 10%);
 
   --code-background: #181a1f;
-  --code-border-color: color-mix(in oklab, #e0a569 56%, black);
+  --code-border-color: color-mix(in oklab, var(--color-orange) 56%, black);
   --code-icon-color: var(--color-base-50);
-  --code-normal: #e0a569;
+  --code-normal: var(--color-orange);
 
   --canvas-dot-pattern: rgb(255 255 255 / 20%);
 
