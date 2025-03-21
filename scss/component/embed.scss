@@ -16,10 +16,7 @@ body.obsidian-app {
   overflow: visible !important;
 }
 
-img,
-audio,
-video,
-iframe,
+:is(img, audio, video, iframe),
 .internal-embed.pdf-embed {
   border-radius: var(--radius-m);
   box-shadow: var(--shadow-s);
@@ -84,8 +81,7 @@ iframe[src^="https:/youtube.com/"] {
   }
 }
 
-.file-embed,
-.file-embed-title {
+:is(.file-embed, .file-embed-title) {
   justify-content: flex-start;
   font-size: var(--font-small);
 }

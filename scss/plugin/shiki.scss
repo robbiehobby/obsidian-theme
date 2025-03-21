@@ -86,19 +86,14 @@ body.obsidian-app .expressive-code {
       overflow-x: auto;
     }
 
-    .ec-line {
-      mark,
-      ins,
-      del {
-        display: inline;
-      }
+    .ec-line :is(mark, ins, del) {
+      display: inline;
     }
   }
 
   // Updates the style of the copy-to-clipboard button
   .copy {
-    .feedback,
-    button div {
+    :is(.feedback, button div) {
       display: none;
     }
 

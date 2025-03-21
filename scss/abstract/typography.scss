@@ -57,77 +57,48 @@ body.obsidian-app .inline-title {
 }
 
 .inline-title,
-h1,
-.markdown-rendered h1,
-.HyperMD-header-1,
-h2,
-.markdown-rendered h2,
-.HyperMD-header-2,
-h3,
-.markdown-rendered h3,
-.HyperMD-header-3,
-h4,
-.markdown-rendered h4,
-.HyperMD-header-4,
-h5,
-.markdown-rendered h5,
-.HyperMD-header-5,
-h6,
-.markdown-rendered h6,
-.HyperMD-header-6 {
+:is(h1, .markdown-rendered h1, .HyperMD-header-1),
+:is(h2, .markdown-rendered h2, .HyperMD-header-2),
+:is(h3, .markdown-rendered h3, .HyperMD-header-3),
+:is(h4, .markdown-rendered h4, .HyperMD-header-4),
+:is(h5, .markdown-rendered h5, .HyperMD-header-5),
+:is(h6, .markdown-rendered h6, .HyperMD-header-6) {
   letter-spacing: 0 !important;
 }
 
 .inline-title,
-h1,
-.markdown-rendered h1,
-.HyperMD-header-1 {
+:is(h1, .markdown-rendered h1, .HyperMD-header-1) {
   font-variation-settings: "wght" 600;
 }
 
-h2,
-.markdown-rendered h2,
-.HyperMD-header-2 {
+:is(h2, .markdown-rendered h2, .HyperMD-header-2) {
   font-variation-settings: "wght" 600;
 }
 
-h3,
-.markdown-rendered h3,
-.HyperMD-header-3 {
+:is(h3, .markdown-rendered h3, .HyperMD-header-3) {
   font-variation-settings: "wght" 575;
 }
 
-h4,
-.markdown-rendered h4,
-.HyperMD-header-4 {
+:is(h4, .markdown-rendered h4, .HyperMD-header-4) {
   font-variation-settings: "wght" 550;
 }
 
-h5,
-.markdown-rendered h5,
-.HyperMD-header-5 {
+:is(h5, .markdown-rendered h5, .HyperMD-header-5) {
   font-variation-settings: "wght" 525;
 }
 
-h6,
-.markdown-rendered h6,
-.HyperMD-header-6 {
+:is(h6, .markdown-rendered h6, .HyperMD-header-6) {
   font-variation-settings: "wght" 525;
 }
 
-h3,
-h4,
-h5,
-h6 {
+:is(h3, h4, h5, h6) {
   &,
   .markdown-rendered & {
     margin-top: var(--heading-spacing) !important;
   }
 }
 
-h2,
-.markdown-rendered h2,
-.HyperMD-header-2 {
+:is(h2, .markdown-rendered h2, .HyperMD-header-2) {
   padding-top: 0 !important;
   margin-top: var(--size-4-10) !important;
 
@@ -138,9 +109,7 @@ h2,
   }
 }
 
-h3,
-.markdown-rendered h3,
-.HyperMD-header-3 {
+:is(h3, .markdown-rendered h3, .HyperMD-header-3) {
   position: relative;
   display: table !important;
   padding: 0 0.2em !important;
@@ -157,15 +126,9 @@ h3,
   }
 }
 
-h4,
-.markdown-rendered h4,
-.HyperMD-header-4,
-h5,
-.markdown-rendered h5,
-.HyperMD-header-5,
-h6,
-.markdown-rendered h6,
-.HyperMD-header-6 {
+:is(h4, .markdown-rendered h4, .HyperMD-header-4),
+:is(h5, .markdown-rendered h5, .HyperMD-header-5),
+:is(h6, .markdown-rendered h6, .HyperMD-header-6) {
   &::before {
     display: block;
     width: var(--size-4-6);
@@ -193,8 +156,7 @@ hr {
   margin-block: var(--size-4-6);
 }
 
-.internal-link,
-.external-link {
+:is(.internal-link, .external-link) {
   &,
   .markdown-rendered & {
     padding-inline-end: 0;
@@ -211,8 +173,7 @@ del,
   color: var(--italic-color) !important;
 }
 
-.footnotes,
-.HyperMD-footnote,
+:is(.footnotes, .HyperMD-footnote),
 .cm-s-obsidian span:is(.cm-footref, .cm-blockid) {
   font-size: var(--font-small);
   line-height: var(--line-height-tighter);

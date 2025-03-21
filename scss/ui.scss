@@ -34,13 +34,11 @@ body.obsidian-app:not(.is-mobile) {
   padding-bottom: var(--size-4-1);
 }
 
-.nav-files-container,
-.workspace-leaf-content .view-content {
+:is(.nav-files-container, .workspace-leaf-content .view-content) {
   padding-inline: var(--size-4-4);
 }
 
-.nav-folder,
-.nav-file {
+:is(.nav-folder, .nav-file) {
   margin-block: 5px;
 }
 
@@ -59,8 +57,7 @@ body.obsidian-app:not(.is-mobile) {
   opacity: 0.5;
 }
 
-.nav-file-title:hover,
-.nav-file-title.is-active {
+:is(.nav-file-title:hover, .nav-file-title.is-active) {
   .tree-item-icon {
     opacity: 1;
   }

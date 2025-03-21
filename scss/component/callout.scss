@@ -9,23 +9,19 @@ body.obsidian-app {
   --callout-title-size: var(--font-smallest);
 }
 
-.callout[data-callout="attention"] {
-  --callout-color: var(--color-red-rgb);
-}
-
 .callout {
   --callout-padding: calc(var(--size-4-4) * 0.75) var(--size-4-4) 0;
   --callout-border-color: rgba(var(--callout-color), 0.4);
+
   --list-marker-color: rgb(var(--callout-color));
   --p-spacing: calc(var(--size-4-4) * 0.75);
 
-  // Adds color weights
-  @each $color in white, black {
-    @each $weight in 10, 20, 30, 40, 50, 60, 70, 80, 90 {
-      --callout-#{'' + $color}-#{$weight}: color-mix(in oklab, rgb(var(--callout-color)) #{$weight + "%"}, #{$color});
-    }
+  &[data-callout="attention"] {
+    --callout-color: var(--color-red-rgb);
   }
+}
 
+.callout {
   position: relative;
   min-height: var(--size-4-10);
   margin-block: var(--size-4-4);
@@ -34,6 +30,7 @@ body.obsidian-app {
   border: 1px solid var(--callout-border-color);
   box-shadow: var(--shadow-s);
 
+  // Move background to pseudo element to separate blending mode
   &::before {
     position: absolute;
     inset: 0;
@@ -41,32 +38,9 @@ body.obsidian-app {
     background-color: rgba(var(--callout-color), 0.1);
     mix-blend-mode: hard-light;
   }
-}
 
-.callout .callout {
-  background-color: transparent;
-}
-
-// Styles for callout types that are icon-less and title-less
-@each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
-  .callout[data-callout="color-#{'' + $color}"],
-  .callout[data-callout="color-#{'' + $color}-compact"],
-  .callout[data-callout="color-#{'' + $color}-outline"] {
-    --callout-color: var(--color-#{$color}-rgb);
-  }
-
-  .callout[data-callout="color-#{'' + $color}-compact"] {
-    padding-block-start: 0;
-  }
-
-  .callout[data-callout="color-#{'' + $color}-outline"]::before {
-    content: unset;
-  }
-
-  .callout[data-callout="color-#{'' + $color}"] .callout-icon,
-  .callout[data-callout="color-#{'' + $color}-compact"] .callout-title,
-  .callout[data-callout="color-#{'' + $color}-outline"] .callout-icon {
-    display: none;
+  .callout {
+    background-color: transparent;
   }
 }
 
@@ -78,13 +52,15 @@ body.obsidian-app {
   margin-block-end: calc(var(--p-spacing) * -0.5);
   text-transform: uppercase;
   border-radius: 0 0 var(--radius-s) var(--radius-s);
-}
 
-.callout-title-inner {
-  font-family: var(--font-1);
+  .callout-title-inner {
+    font-family: var(--font-1);
+  }
 }
 
 .callout-content {
+  position: relative;
+  z-index: 1;
   overflow: visible;
   font-size: var(--font-small);
 
@@ -92,12 +68,7 @@ body.obsidian-app {
     margin-top: calc(var(--p-spacing) * 2) !important;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  :is(h1, h2, h3, h4, h5, h6) {
     margin-top: calc(var(--p-spacing) + var(--p-spacing)) !important;
   }
 
@@ -105,10 +76,7 @@ body.obsidian-app {
     content: unset;
   }
 
-  h3,
-  h4,
-  h5,
-  h6 {
+  :is(h3, h4, h5, h6) {
     --h3-bg: rgb(var(--callout-color));
     --h4-color: var(--h3-bg);
     --h5-color: var(--h3-bg);
@@ -128,10 +96,10 @@ body.obsidian-app {
 
 // Matches the link style to the callout color
 .callout :is(.internal-link, .external-link) {
-  color: var(--callout-white-70);
+  color: color-mix(in oklab, rgb(var(--callout-color)) 70%, white);
 
   &:hover {
-    color: var(--callout-white-50);
+    color: color-mix(in oklab, rgb(var(--callout-color)) 50%, white);
   }
 }
 
@@ -139,7 +107,7 @@ body.obsidian-app {
 .callout code:not(pre code) {
   &,
   .markdown-rendered & {
-    color: var(--callout-white-50);
+    color: color-mix(in oklab, rgb(var(--callout-color)) 50%, white);
     outline: 1px solid rgb(var(--callout-color), 0.5);
     background-color: unset;
   }
@@ -165,8 +133,6 @@ body.obsidian-app:not(.is-mobile) .callout-content {
   }
 }
 
-body.obsidian-app.is-mobile .callout-content {
-  .task-list-item-checkbox {
-    top: 0.3em;
-  }
+body.obsidian-app.is-mobile .callout-content .task-list-item-checkbox {
+  top: 0.3em;
 }

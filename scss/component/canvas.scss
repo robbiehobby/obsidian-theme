@@ -16,6 +16,7 @@
 .canvas-node.is-themed .canvas-node-content {
   background-color: transparent;
 
+  // Move background to pseudo element to separate blending mode
   &::before {
     position: absolute;
     inset: 0;
@@ -28,22 +29,25 @@
     position: relative;
     z-index: 1;
   }
+
+  // Matches the inline code style with the canvas color
+  code:not(pre code) {
+    color: color-mix(in oklab, rgb(var(--canvas-color)) 50%, white);
+    outline: 1px solid rgb(var(--canvas-color), 0.5);
+    background-color: unset;
+  }
 }
 
-.canvas-node.is-themed code:not(pre code) {
-  color: var(--canvas-white-50);
-  outline: 1px solid rgb(var(--canvas-color), 0.5);
-  background-color: unset;
-}
+.canvas-node-group {
+  .canvas-group-label {
+    left: 50%;
+    font-size: var(--font-text-size);
+    transform: translate(-50%, -100%);
+  }
 
-.canvas-group-label {
-  left: 50%;
-  font-size: var(--font-text-size);
-  transform: translate(-50%, -100%);
-}
-
-.canvas-node-group.is-themed .canvas-group-label:not([contenteditable="true"]) {
-  background-color: rgb(var(--canvas-color), 60%);
+  &.is-themed .canvas-group-label:not([contenteditable="true"]) {
+    background-color: rgb(var(--canvas-color), 60%);
+  }
 }
 
 .canvas-path-label {
