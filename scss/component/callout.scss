@@ -19,6 +19,10 @@ body.obsidian-app {
   &[data-callout="attention"] {
     --callout-color: var(--color-red-rgb);
   }
+
+  &[data-callout="missing"] {
+    --callout-color: var(--color-orange-rgb);
+  }
 }
 
 .callout {
@@ -41,6 +45,23 @@ body.obsidian-app {
 
   .callout {
     background-color: transparent;
+  }
+}
+
+// Styles for icon-less callout colors
+@each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
+  .callout[data-callout="#{'' + $color}"],
+  .callout[data-callout="#{'' + $color}-mini"] {
+    --callout-color: var(--color-#{$color}-rgb);
+  }
+
+  .callout[data-callout="#{'' + $color}-mini"] {
+    padding-top: 0;
+  }
+
+  .callout[data-callout="#{'' + $color}"] .callout-icon,
+  .callout[data-callout="#{'' + $color}-mini"] .callout-title {
+    display: none;
   }
 }
 

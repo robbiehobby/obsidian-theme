@@ -48,6 +48,7 @@ body.theme-dark.is-mobile {
   --titlebar-background-focused: var(--background-primary);
   --interactive-normal: var(--color-base-30);
   --divider-color: #2b2e37;
+  --indentation-guide-color: #1e222c;
   --shadow-s: 0px 4px 15px rgb(0 0 0 / 15%);
 
   --media-bg: #070709;
@@ -58,7 +59,7 @@ body.theme-dark.is-mobile {
   --table-header-bg: rgb(0 0 0 / 10%);
 
   --code-background: #181a1f;
-  --code-border-color: color-mix(in oklab, var(--color-orange) 56%, black);
+  --code-border-color: color-mix(in oklab, var(--color-orange) 60%, black);
   --code-icon-color: var(--color-base-50);
   --code-normal: var(--color-orange);
 
