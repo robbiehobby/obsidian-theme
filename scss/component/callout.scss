@@ -13,6 +13,7 @@ body.obsidian-app {
   --callout-padding: calc(var(--size-4-4) * 0.75) var(--size-4-4) 0;
   --callout-border-color: rgba(var(--callout-color), 0.4);
 
+  --indentation-guide-color: rgba(var(--callout-color), 0.1);
   --list-marker-color: rgb(var(--callout-color));
   --p-spacing: calc(var(--size-4-4) * 0.75);
   --text-selection: rgba(var(--callout-color), 0.3);
@@ -44,8 +45,12 @@ body.obsidian-app {
     mix-blend-mode: hard-light;
   }
 
+  &.is-collapsed {
+    padding-block-end: var(--size-4-4);
+  }
+
   .callout {
-    background-color: transparent;
+    margin-block: var(--p-spacing);
   }
 }
 
@@ -65,6 +70,8 @@ body.obsidian-app {
 
   .callout[data-callout="#{'' + $color}-outline"],
   .callout[data-callout="#{'' + $color}-outline-small"] {
+    box-shadow: none;
+
     &::before {
       background-color: transparent;
     }
@@ -72,6 +79,7 @@ body.obsidian-app {
 
   .callout[data-callout="#{'' + $color}"] .callout-icon,
   .callout[data-callout="#{'' + $color}-small"] .callout-title,
+  .callout[data-callout="#{'' + $color}-outline"] .callout-icon,
   .callout[data-callout="#{'' + $color}-outline-small"] .callout-title {
     display: none;
   }
@@ -102,7 +110,7 @@ body.obsidian-app {
   }
 
   > .callout:first-child {
-    margin-top: calc(var(--p-spacing) * 2) !important;
+    margin-top: calc(var(--p-spacing) * 1.5) !important;
   }
 
   :is(h1, h2, h3, h4, h5, h6) {
@@ -152,7 +160,7 @@ body.obsidian-app {
 
 // Matches the checkbox style with the callout color
 .callout input[type="checkbox"] {
-  border-color: rgb(var(--callout-color));
+  border-color: rgb(var(--callout-color)) !important;
 
   &:checked {
     background-color: rgb(var(--callout-color));

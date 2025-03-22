@@ -2,7 +2,7 @@ body.theme-dark,
 body.theme-dark.is-mobile {
   --color-base-00: #131720;
   --color-base-10: #202b31;
-  --color-base-20: var(--color-base-00);
+  --color-base-20: #131720;
   --color-base-30: #181a1f;
   --color-base-35: #1d1f25;
   --color-base-40: #282b33;
@@ -32,14 +32,16 @@ body.theme-dark.is-mobile {
   --background-modifier-message: var(--color-base-40);
   --background-modifier-hover: rgb(77 92 128 / 20%);
 
-  --h3-background: var(--text-accent);
+  --inline-title-color: var(--color-accent-2);
 
   --h3-color: var(--background-primary);
-  --h4-color: var(--text-accent);
-  --h5-color: var(--text-accent);
-  --h6-color: var(--text-accent);
+  --h4-color: var(--color-accent-1);
+  --h5-color: var(--color-accent-1);
+  --h6-color: var(--color-accent-1);
 
-  --italic-color: hsl(var(--color-accent-hsl));
+  --h3-background: var(--color-accent-1);
+
+  --italic-color: var(--color-accent-1);
   --strike-color: var(--color-red);
 
   --text-selection: hsl(var(--accent-h), var(--accent-s), var(--accent-l), 30%);
@@ -55,18 +57,16 @@ body.theme-dark.is-mobile {
   --nav-file-tag-color-active: rgb(255 255 255 / 50%);
   --nav-file-tag-color: rgb(255 255 255 / 30%);
 
-  --table-header-color: rgb(255 255 255 / 42%);
-  --table-header-bg: #11131b;
   --table-selection-bg: rgb(255 255 255 / 5%);
 
   --code-background: #181a1f;
-  --code-border-color: color-mix(in oklab, var(--text-accent) 60%, black);
+  --code-border-color: hsl(var(--color-accent-hsl), 40%);
+  --code-normal: hsl(var(--color-accent-hsl));
   --code-icon-color: var(--color-base-50);
-  --code-normal: var(--text-accent);
 
-  --canvas-dot-pattern: rgb(255 255 255 / 20%);
+  --canvas-dot-pattern: rgb(255 255 255 / 10%);
 
   * {
-    scrollbar-color: #222 transparent;
+    scrollbar-color: rgb(255 255 255 / 10%) transparent;
   }
 }

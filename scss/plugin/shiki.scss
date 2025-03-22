@@ -11,7 +11,6 @@ body.obsidian-app .expressive-code {
 body.obsidian-app .expressive-code {
   border: 1px solid var(--divider-color);
   border-radius: var(--code-radius);
-  box-shadow: var(--shadow-s);
 
   // Normalize the frame header and convert the title into a flexbox for icons
   .frame .header {
@@ -127,17 +126,6 @@ body.obsidian-app .expressive-code {
 body.obsidian-app .callout-content .expressive-code {
   border: 1px solid var(--callout-border-color);
   border-radius: var(--code-radius);
-}
-
-// Removes the top or bottom margin from the first or last code block
-.markdown-rendered > .markdown-preview-section {
-  > div.mod-header + .el-pre .expressive-code {
-    margin-top: 0;
-  }
-
-  > div:last-child .expressive-code {
-    margin-bottom: 0;
-  }
 }
 
 // Automatically adds language-based icons to the frame title
