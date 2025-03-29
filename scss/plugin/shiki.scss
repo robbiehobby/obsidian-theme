@@ -85,8 +85,15 @@ body.obsidian-app .expressive-code {
       overflow-x: auto;
     }
 
-    .ec-line :is(mark, ins, del) {
-      display: inline;
+    .ec-line {
+      &:hover {
+        outline: 1px solid var(--divider-color);
+        outline-offset: -1px;
+      }
+
+      :is(mark, ins, del) {
+        display: inline;
+      }
     }
   }
 

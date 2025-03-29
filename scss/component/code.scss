@@ -15,3 +15,23 @@ body.obsidian-app {
 pre {
   box-shadow: var(--shadow-s);
 }
+
+.HyperMD-codeblock.cm-line {
+  &.HyperMD-codeblock-bg.cm-active {
+    outline: 1px solid var(--divider-color);
+    outline-offset: -1px;
+  }
+
+  &.HyperMD-codeblock-begin-bg {
+    border-top: 1px solid var(--divider-color);
+  }
+
+  &.HyperMD-codeblock-bg {
+    border-right: 1px solid var(--divider-color);
+    border-left: 1px solid var(--divider-color);
+  }
+
+  &.HyperMD-codeblock-end-bg {
+    border-bottom: 1px solid var(--divider-color);
+  }
+}
