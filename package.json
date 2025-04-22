@@ -5,6 +5,6 @@
     "build": "sass --no-source-map --style=compressed scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Theme.css\" && sass --no-source-map --style=compressed scss/main.scss public/theme.css"
   },
   "devDependencies": {
-    "sass": "^1.82.0"
+    "sass": "^1.87.0"
   }
 }
