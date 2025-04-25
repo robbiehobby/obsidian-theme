@@ -26,7 +26,7 @@ body.obsidian-app {
 .h6-l .markdown-reading-view h6,
 .h6-l .mod-cm6 .cm-editor .HyperMD-header-6 {
   padding-bottom: initial;
-  margin-block: calc(var(--heading-spacing) * 1.5) var(--p-spacing);
+  margin-block-start: calc(var(--heading-spacing) * 0.5) !important;
   border-bottom: none;
 
   &::before {
@@ -35,13 +35,22 @@ body.obsidian-app {
 
     display: block;
     height: calc(1.5px + 15px / (2 * tan(145deg / 2)));
-    margin-bottom: calc(var(--p-spacing) * 0.75);
+    margin-bottom: calc(var(--heading-spacing) * 0.75);
     content: "";
     background: var(--divider-color);
     mask:
       50% calc(-1 * 1.5px) / 15px var(--zig-zag) exclude,
       50% / 15px var(--zig-zag);
   }
+}
+
+.h1-l .markdown-reading-view h1,
+.h2-l .markdown-reading-view h2,
+.h3-l .markdown-reading-view h3,
+.h4-l .markdown-reading-view h4,
+.h5-l .markdown-reading-view h5,
+.h6-l .markdown-reading-view h6 {
+  margin-block: calc(var(--heading-spacing) * 1.75) var(--p-spacing) !important;
 }
 
 .external-link {

@@ -104,30 +104,18 @@
 // Additional callout style variants
 @each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
   .callout[data-callout="#{'' + $color}"],
-  .callout[data-callout="#{'' + $color}-small"],
-  .callout[data-callout="#{'' + $color}-outline"],
-  .callout[data-callout="#{'' + $color}-outline-small"] {
+  .callout[data-callout="#{'' + $color}-small"] {
     --callout-color: var(--color-#{$color}-rgb);
   }
 
-  .callout[data-callout="#{'' + $color}-small"],
-  .callout[data-callout="#{'' + $color}-outline-small"] {
+  .callout[data-callout="#{'' + $color}-small"] {
     .callout-content > :first-child {
       margin-block-start: 0;
     }
   }
 
-  .callout[data-callout="#{'' + $color}-outline"],
-  .callout[data-callout="#{'' + $color}-outline-small"] {
-    &::before {
-      background-color: transparent;
-    }
-  }
-
   .callout[data-callout="#{'' + $color}"] .callout-icon,
-  .callout[data-callout="#{'' + $color}-small"] .callout-title,
-  .callout[data-callout="#{'' + $color}-outline"] .callout-icon,
-  .callout[data-callout="#{'' + $color}-outline-small"] .callout-title {
+  .callout[data-callout="#{'' + $color}-small"] .callout-title {
     display: none;
   }
 }
