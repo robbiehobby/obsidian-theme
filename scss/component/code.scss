@@ -7,6 +7,10 @@ body.obsidian-app {
   --code-spacer-y: calc(var(--p-spacing) * 0.75);
 }
 
+.token.atrule {
+  color: var(--color-cyan);
+}
+
 .markdown-rendered {
   code {
     background-color: transparent;

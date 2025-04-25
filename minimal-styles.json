@@ -6,6 +6,7 @@
   "minimal-style@@blockquote-font-style": "italic",
   "minimal-style@@checkbox-shape": "checkbox-square",
   "minimal-style@@code-background@@dark": "#151923",
+  "minimal-style@@code-normal@@dark": "#ABB2BF",
   "minimal-style@@code-size": "11.5px",
   "minimal-style@@h1-color@@dark": "#FFFFFF",
   "minimal-style@@h1-font": "Sora",
