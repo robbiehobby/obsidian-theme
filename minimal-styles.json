@@ -33,7 +33,7 @@
   "minimal-style@@h6-variant": "normal",
   "minimal-style@@h6-weight": 500,
   "minimal-style@@heading-spacing": "2rem",
-  "minimal-style@@hl2@@dark": "#633C6F",
+  "minimal-style@@hl2@@dark": "#024488",
   "minimal-style@@list-indent": 2,
   "minimal-style@@list-spacing": 0.12,
   "minimal-style@@p-spacing": "1.5rem",
@@ -42,5 +42,5 @@
   "minimal-style@@table-numbers": true,
   "minimal-style@@table-text-size": "13px",
   "minimal-style@@tabs-style": "tabs-plain-square",
-  "minimal-style@@tx3@@dark": "#7F848E"
+  "minimal-style@@tx3@@dark": "#727780"
 }
