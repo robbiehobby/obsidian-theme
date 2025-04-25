@@ -1,21 +1,23 @@
-@use "../abstract/mixin" as *;
-
-body.obsidian-app {
-  --callout-blend-mode: none;
-  --callout-border-opacity: 0.4;
-  --callout-border-width: 1px;
-  --callout-opacity: 0.1;
-  --callout-radius: var(--radius-m);
-  --callout-title-size: var(--font-smallest);
-}
-
 .callout {
-  --callout-padding: calc(var(--size-4-4) * 0.75) var(--size-4-4) 0;
-  --callout-border-color: rgba(var(--callout-color), 0.4);
-
+  --callout-border-color: rgba(var(--callout-color), 0.3);
+  --callout-padding: var(--callout-spacer-y) var(--callout-spacer-x) 0;
+  --callout-spacer-x: calc(var(--p-spacing) * 0.9);
+  --callout-spacer-y: calc(var(--p-spacing) * 0.75);
+  --callout-title-size: var(--font-smaller);
+  --checkbox-border-color-hover: var(--checkbox-color);
+  --checkbox-border-color: var(--checkbox-color);
+  --checkbox-color-hover: var(--checkbox-color);
+  --checkbox-color: rgb(var(--callout-color));
+  --code-border-color: rgb(var(--callout-color), 0.3);
+  --code-normal: color-mix(in oklab, rgb(var(--callout-color)) 60%, white);
   --indentation-guide-color: rgba(var(--callout-color), 0.1);
+  --link-color-hover: color-mix(in oklab, rgb(var(--callout-color)) 50%, white);
+  --link-color: color-mix(in oklab, rgb(var(--callout-color)) 70%, white);
+  --link-external-color-hover: var(--link-color-hover);
+  --link-external-color: var(--link-color);
+  --link-unresolved-color-hover: var(--link-color-hover);
+  --link-unresolved-color: var(--link-color);
   --list-marker-color: rgb(var(--callout-color));
-  --p-spacing: calc(var(--size-4-4) * 0.75);
   --text-selection: rgba(var(--callout-color), 0.3);
 
   &[data-callout="attention"] {
@@ -29,14 +31,11 @@ body.obsidian-app {
 
 .callout {
   position: relative;
-  min-height: var(--size-4-10);
-  margin-block: var(--size-4-4);
-  overflow-x: auto;
   background-color: var(--background-primary);
   border: 1px solid var(--callout-border-color);
   box-shadow: var(--shadow-s);
 
-  // Move background to pseudo element to separate blending mode
+  // Isolate background for consistent mix blending
   &::before {
     position: absolute;
     inset: 0;
@@ -44,17 +43,65 @@ body.obsidian-app {
     background-color: rgba(var(--callout-color), 0.1);
     mix-blend-mode: hard-light;
   }
+}
 
-  &.is-collapsed {
-    padding-block-end: var(--size-4-4);
-  }
+.callout,
+.callout-content .callout {
+  margin-block: var(--callout-spacer-y);
+}
 
-  .callout {
-    margin-block: var(--p-spacing);
+.callout-title {
+  position: relative;
+  text-transform: uppercase;
+
+  .callout-icon {
+    margin-inline-end: var(--size-4-1);
   }
 }
 
-// Styles for icon-less callout colors
+.callout.is-collapsed,
+.callout:not(:has(.callout-content)) {
+  .callout-title {
+    margin-block-end: var(--callout-spacer-y);
+  }
+}
+
+.callout-content {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+
+  > :first-child:not(p) {
+    margin-block-start: var(--callout-spacer-y);
+  }
+
+  > p:first-child {
+    margin-block-start: calc(var(--callout-spacer-y) * 0.75);
+  }
+
+  > :last-child:not(.callout) {
+    margin-block-end: var(--callout-spacer-y) !important;
+  }
+}
+
+// Support for minimal theme outlined callouts
+.callouts-outlined .callout {
+  &::before {
+    background-color: unset;
+  }
+
+  .callout-title {
+    margin-top: calc(var(--callout-spacer-y) * -1.65);
+    margin-left: calc(var(--callout-spacer-x) * -0.3);
+    letter-spacing: 0;
+  }
+
+  .callout-fold {
+    padding-inline: 0;
+  }
+}
+
+// Additional callout style variants
 @each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
   .callout[data-callout="#{'' + $color}"],
   .callout[data-callout="#{'' + $color}-small"],
@@ -65,13 +112,13 @@ body.obsidian-app {
 
   .callout[data-callout="#{'' + $color}-small"],
   .callout[data-callout="#{'' + $color}-outline-small"] {
-    padding-top: 0;
+    .callout-content > :first-child {
+      margin-block-start: 0;
+    }
   }
 
   .callout[data-callout="#{'' + $color}-outline"],
   .callout[data-callout="#{'' + $color}-outline-small"] {
-    box-shadow: none;
-
     &::before {
       background-color: transparent;
     }
@@ -83,101 +130,4 @@ body.obsidian-app {
   .callout[data-callout="#{'' + $color}-outline-small"] .callout-title {
     display: none;
   }
-}
-
-.callout-title {
-  position: relative;
-  gap: var(--size-2-5);
-  align-items: center;
-  max-width: fit-content;
-  margin-block-end: calc(var(--p-spacing) * -0.5);
-  text-transform: uppercase;
-  border-radius: 0 0 var(--radius-s) var(--radius-s);
-
-  .callout-title-inner {
-    font-family: var(--font-heading);
-  }
-}
-
-.callout-content {
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-  font-size: var(--font-small);
-
-  &:has(> h3:first-child) {
-    padding-top: calc(var(--p-spacing) * 2) !important;
-  }
-
-  > .callout:first-child {
-    margin-top: calc(var(--p-spacing) * 1.5) !important;
-  }
-
-  :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: calc(var(--p-spacing) + var(--p-spacing)) !important;
-  }
-
-  h2::before {
-    content: unset;
-  }
-
-  :is(h3, h4, h5, h6) {
-    --h3-background: rgb(var(--callout-color));
-    --h4-color: var(--h3-background);
-    --h5-color: var(--h3-background);
-    --h6-color: var(--h3-background);
-  }
-}
-
-.markdown-source-view.mod-cm6.is-live-preview .callout-content {
-  > div:first-child {
-    margin-top: var(--p-spacing);
-  }
-
-  > div {
-    margin-bottom: var(--p-spacing);
-  }
-}
-
-// Matches the link style to the callout color
-.callout :is(.internal-link, .external-link) {
-  color: color-mix(in oklab, rgb(var(--callout-color)) 70%, white);
-
-  &:hover {
-    color: color-mix(in oklab, rgb(var(--callout-color)) 50%, white);
-  }
-}
-
-// Matches the inline code style with the callout color
-.callout code:not(pre code) {
-  &,
-  .markdown-rendered & {
-    color: color-mix(in oklab, rgb(var(--callout-color)) 60%, white);
-    outline: 1px solid rgb(var(--callout-color), 0.5);
-    background-color: unset;
-  }
-}
-
-// Matches the checkbox style with the callout color
-.callout input[type="checkbox"] {
-  border-color: rgb(var(--callout-color)) !important;
-
-  &:checked {
-    background-color: rgb(var(--callout-color));
-  }
-}
-
-// Adjusts the spacing of lists within callout embed previews
-body.obsidian-app:not(.is-mobile) .callout-content {
-  > :is(ul, ol) {
-    margin-inline-start: -0.15em;
-  }
-
-  .task-list-item-checkbox {
-    top: 0.15em;
-  }
-}
-
-body.obsidian-app.is-mobile .callout-content .task-list-item-checkbox {
-  top: 0.3em;
 }

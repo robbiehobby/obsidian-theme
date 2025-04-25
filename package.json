@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "dev": "sass --no-source-map --watch scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Theme.css\"",
-    "build": "sass --no-source-map --style=compressed scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Theme.css\" && sass --no-source-map --style=compressed scss/main.scss public/theme.css"
+    "dev": "sass --no-source-map --watch scss/main.scss \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Minimal.css\"",
+    "build:prod": "sass --no-source-map --style compressed scss/main.scss",
+    "build": "npm run build:prod public/Minimal.css",
+    "build:sync": "npm run build:prod \"$(zx obsidian documents)/Notebook/.obsidian/snippets/Minimal.css\""
   },
   "devDependencies": {
     "sass": "^1.87.0"

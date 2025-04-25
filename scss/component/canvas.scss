@@ -2,58 +2,16 @@
   --zoom-multiplier: 1 !important;
 }
 
-.canvas-node {
-  --shadow-border-themed-inset: inset 0 0 0 0 rgb(var(--canvas-color));
-  --shadow-border-themed: 0 0 0 1px rgb(var(--canvas-color));
+.canvas-node.is-themed {
+  --code-border-color: rgb(var(--canvas-color), 0.5);
+  --code-normal: color-mix(in oklab, rgb(var(--canvas-color)) 60%, white);
 }
 
-:is(.canvas-node, .canvas-node.is-themed) .canvas-node-container {
-  border-color: rgba(var(--canvas-color), 0.6);
-  border-width: 1px;
-  box-shadow: unset;
-}
-
-.canvas-node.is-themed .canvas-node-content {
-  background-color: transparent;
-
-  // Move background to pseudo element to separate blending mode
-  &::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background-color: rgba(var(--canvas-color), 0.1);
-    mix-blend-mode: hard-light;
-  }
-
-  .markdown-embed-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  // Matches the inline code style with the canvas color
-  code:not(pre code) {
-    color: color-mix(in oklab, rgb(var(--canvas-color)) 90%, white);
-    outline: 1px solid rgb(var(--canvas-color), 0.5);
-    background-color: unset;
-  }
-}
-
-.canvas-node-group {
-  .canvas-group-label {
-    left: 50%;
-    font-size: var(--font-text-size);
-    transform: translate(-50%, -100%);
-  }
-
-  &.is-themed .canvas-group-label:not([contenteditable="true"]) {
-    background-color: rgb(var(--canvas-color), 60%);
-  }
+.canvas-group-label {
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-bold);
 }
 
 .canvas-path-label {
-  font-size: var(--font-ui-medium);
-}
-
-.canvas-edges path.canvas-display-path {
-  stroke-width: 1.5px;
+  font-size: var(--font-ui-small);
 }

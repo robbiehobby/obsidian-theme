@@ -1,52 +1,48 @@
 body.obsidian-app {
-  --embed-block-shadow-hover: none;
-  --embed-max-height: 300px;
+  --nested-padding: var(--p-spacing);
 }
 
-.popover.hover-popover {
-  --file-margins: var(--size-4-6);
+.markdown-preview-view .markdown-embed {
+  padding-inline-end: 0;
 }
 
-// Allows rendering beyond the embed area
-.markdown-source-view.mod-cm6 .cm-content > .cm-embed-block[contenteditable="false"] {
-  contain: none !important;
+.embed-title {
+  padding-block-end: var(--p-spacing);
 }
 
-.cm-embed-block:hover {
-  overflow: visible !important;
+.file-embed {
+  background-color: transparent;
+  border: 1px solid var(--divider-color);
+  border-radius: var(--radius-s);
+
+  &.mod-generic,
+  &.mod-empty {
+    padding: var(--size-4-2) var(--size-4-3);
+    font-size: var(--font-adaptive-normal);
+  }
 }
 
-:is(img, audio, video, iframe),
-.internal-embed.pdf-embed {
-  border-radius: var(--radius-m);
+.file-embed-title {
+  justify-content: flex-start;
+}
+
+.pdf-embed {
   box-shadow: var(--shadow-s);
 }
 
-.image-embed {
-  display: block;
-  text-align: center;
+.internal-query {
+  .internal-query-header {
+    padding-block: var(--size-4-3);
+  }
 
-  img {
-    max-width: 100%;
+  .search-result-container {
+    padding: var(--size-4-2) var(--size-4-4);
   }
 }
 
-video {
-  overflow: hidden;
-  background-color: var(--media-bg);
-}
-
-audio {
-  border-radius: var(--radius-m);
-
-  &::-webkit-media-controls-enclosure {
-    background-color: var(--media-bg);
-    border: none;
-  }
-}
-
-.el-iframe {
-  margin-block: var(--p-spacing);
+:is(img, audio, video, iframe) {
+  border-radius: var(--image-radius);
+  box-shadow: var(--shadow-s);
 }
 
 iframe:not(.external-embed) {
@@ -59,131 +55,4 @@ iframe[src^="https:/youtube.com/"] {
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
-}
-
-// Styles for internal generic file embed previews
-.file-embed {
-  padding: var(--size-4-2) var(--size-4-3) !important;
-  font-family: var(--h3-font);
-  font-weight: var(--font-medium);
-  background-color: initial !important;
-  border: 1px solid var(--divider-color);
-
-  &,
-  svg {
-    color: var(--text-muted);
-    transition: var(--transition);
-  }
-
-  &:hover,
-  &:hover svg {
-    color: var(--text-normal);
-  }
-}
-
-:is(.file-embed, .file-embed-title) {
-  justify-content: flex-start;
-  font-size: var(--font-small);
-}
-
-// Styles for internal markdown embed previews
-.internal-embed.markdown-embed {
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--divider-color);
-  border-radius: var(--radius-m);
-
-  .embed-title {
-    padding: var(--size-4-2) var(--size-4-4);
-    font-family: var(--h3-font);
-    white-space: normal;
-    border-bottom: 1px solid var(--divider-color);
-  }
-
-  .markdown-preview-section {
-    padding: var(--size-4-4) !important;
-  }
-
-  .markdown-embed-link {
-    top: var(--size-2-8);
-    right: calc(var(--size-4-4) - var(--size-2-2));
-    background-color: initial;
-    transition: var(--transition);
-  }
-}
-
-body.obsidian-app.is-mobile .internal-embed.markdown-embed .markdown-embed-link {
-  top: var(--size-2-6);
-}
-
-// Styles for PDF file embed previews
-.pdf-embed {
-  --pdf-sidebar-background: var(--media-bg);
-
-  .pdf-toolbar {
-    padding-inline: var(--size-4-2) !important;
-    background-color: var(--pdf-sidebar-background);
-  }
-
-  .pdf-sidebar-container::after {
-    position: absolute;
-    top: 0;
-    right: calc(var(--size-4-2) * -1);
-    bottom: 0;
-    width: var(--size-4-2);
-    content: "";
-    background-image: linear-gradient(90deg, var(--pdf-sidebar-background), transparent);
-  }
-}
-
-// Styles for search result embed previews
-.internal-query {
-  overflow: hidden;
-  border: 1px solid var(--divider-color);
-  border-radius: var(--radius-m);
-
-  .internal-query-header {
-    padding: var(--size-4-2) var(--size-4-4);
-    font-family: var(--h3-font);
-    border-bottom: 1px solid var(--divider-color);
-  }
-}
-
-.markdown-preview-view .embedded-backlinks {
-  margin-top: var(--size-4-16);
-}
-
-.internal-query .search-result-container {
-  padding: var(--size-4-4) var(--size-4-4) var(--size-2-6);
-  border: none !important;
-}
-
-.search-result-file-matched-text {
-  font-weight: var(--font-bold);
-  color: var(--color-accent-1);
-  background-color: transparent;
-}
-
-// Styles the edit block button to cover the entire embed
-.markdown-source-view.mod-cm6 [contenteditable="false"] .edit-block-button,
-.file-embed {
-  cursor: pointer;
-  outline: 1px solid transparent;
-  outline-offset: -1px;
-  background-color: unset !important;
-  border-radius: var(--radius-m);
-  transition: var(--transition);
-
-  &:hover {
-    outline-color: var(--background-modifier-hover);
-  }
-}
-
-.markdown-source-view.mod-cm6 [contenteditable="false"] .edit-block-button {
-  inset: 0;
-  z-index: 9999999;
-
-  svg {
-    display: none;
-  }
 }

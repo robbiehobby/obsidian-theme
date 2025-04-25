@@ -1,37 +1,40 @@
 body.obsidian-app {
-  --code-radius: var(--radius-m);
-  --code-size: var(--font-smallest);
+  --code-border-color: var(--background-modifier-border);
+  --code-border-width: 1px;
+  --code-function: var(--color-blue);
+  --code-keyword: var(--color-purple);
+  --code-spacer-x: calc(var(--p-spacing) * 0.9);
+  --code-spacer-y: calc(var(--p-spacing) * 0.75);
 }
 
-:is(code:not(pre code), .markdown-rendered code:not(pre code)),
-.markdown-source-view.mod-cm6.is-live-preview .cm-widgetBuffer + .cm-inline-code:not(.cm-formatting) {
-  padding: var(--size-2-1) var(--size-2-2);
-  margin-inline: var(--size-2-1);
-  outline: 1px solid var(--code-border-color);
-  background-color: unset;
-  border-radius: var(--radius-s);
+.markdown-rendered {
+  code {
+    background-color: transparent;
+  }
+
+  pre {
+    padding: var(--code-spacer-y) var(--code-spacer-x);
+    box-shadow: var(--shadow-s);
+  }
 }
 
-pre {
-  box-shadow: var(--shadow-s);
+.markdown-rendered {
+  code,
+  pre {
+    white-space: pre;
+  }
 }
 
-.HyperMD-codeblock.cm-line {
-  &.HyperMD-codeblock-bg.cm-active {
-    outline: 1px solid var(--divider-color);
-    outline-offset: -1px;
-  }
+.HyperMD-codeblock,
+.markdown-rendered pre {
+  --code-border-color: color-mix(in oklab, var(--code-background) 90%, white);
+}
 
-  &.HyperMD-codeblock-begin-bg {
-    border-top: 1px solid var(--divider-color);
-  }
+.HyperMD-codeblock,
+.markdown-rendered pre code {
+  line-height: 1.9;
+}
 
-  &.HyperMD-codeblock-bg {
-    border-right: 1px solid var(--divider-color);
-    border-left: 1px solid var(--divider-color);
-  }
-
-  &.HyperMD-codeblock-end-bg {
-    border-bottom: 1px solid var(--divider-color);
-  }
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-codeblock {
+  padding-inline-start: var(--code-spacer-x);
 }

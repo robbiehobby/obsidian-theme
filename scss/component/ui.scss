@@ -1,0 +1,38 @@
+.nav-folder.is-collapsed > .tree-item-self,
+.nav-file-title {
+  .tree-item-icon {
+    opacity: 0.5;
+  }
+}
+
+:is(.nav-file-title:hover, .nav-file-title.is-active) {
+  .tree-item-icon {
+    opacity: 1;
+  }
+
+  > .nav-file-tag {
+    color: var(--nav-file-tag-color-active);
+    outline-color: var(--nav-file-tag-color-active);
+  }
+}
+
+@keyframes flashing {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0.5;
+  }
+}
+
+.is-flashing {
+  background-color: initial !important;
+  border-radius: initial;
+  mix-blend-mode: initial;
+  transition: initial;
+  animation: flashing 1s both 1;
+}
