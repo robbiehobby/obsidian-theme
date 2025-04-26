@@ -68,6 +68,7 @@ body.obsidian-app {
 
 // Support for minimal theme wide table
 .table-wide {
+  --container-table-max-width: var(--max-width) !important;
   --table-wrapper-width: calc(100% + var(--table-drag-padding));
 
   .el-table {
@@ -78,10 +79,6 @@ body.obsidian-app {
     padding-block-start: 0;
     padding-inline-start: 0 !important;
   }
-}
-
-body.obsidian-app {
-  // --table-drag-padding: 0;
 }
 
 // Support for minimal theme table lines
