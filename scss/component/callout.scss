@@ -45,6 +45,18 @@
   }
 }
 
+.markdown-source-view.mod-cm6 .cm-callout .edit-block-button {
+  inset-inline-end: 6px;
+  top: 6px;
+  background-color: transparent;
+  opacity: 0.6;
+
+  svg {
+    width: var(--icon-s);
+    height: var(--icon-s);
+  }
+}
+
 .callout,
 .callout-content .callout {
   margin-block: var(--callout-spacer-y);
@@ -99,6 +111,11 @@
   .callout-fold {
     padding-inline: 0;
   }
+}
+
+.callouts-outlined .markdown-source-view.mod-cm6 .cm-callout .edit-block-button {
+  top: 0;
+  background-color: var(--background-primary);
 }
 
 // Additional callout style variants
