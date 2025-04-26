@@ -20,6 +20,11 @@ body.obsidian-app {
     padding: var(--size-4-2) var(--size-4-3);
     font-size: var(--font-adaptive-normal);
   }
+
+  svg.svg-icon {
+    width: var(--icon-s);
+    height: var(--icon-s);
+  }
 }
 
 .file-embed-title {

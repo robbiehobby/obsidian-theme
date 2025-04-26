@@ -49,7 +49,7 @@ button.copy-code-button {
   opacity: 0.6;
   transition: opacity 0.1s linear;
 
-  svg {
+  svg.svg-icon {
     width: var(--icon-s);
     height: var(--icon-s);
   }
