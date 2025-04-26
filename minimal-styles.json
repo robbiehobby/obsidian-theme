@@ -1,6 +1,7 @@
 {
   "minimal-advanced@@font-ui-small": 12.5,
   "minimal-advanced@@font-ui-smaller": 11.5,
+  "minimal-advanced@@styled-scrollbars": true,
   "minimal-style@@base@@dark": "#131721",
   "minimal-style@@blockquote-border-thickness": 2,
   "minimal-style@@blockquote-font-style": "italic",

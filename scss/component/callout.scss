@@ -34,15 +34,16 @@
   background-color: var(--background-primary);
   border: 1px solid var(--callout-border-color);
   box-shadow: var(--shadow-s);
+  mix-blend-mode: normal;
+}
 
-  // Isolate background for consistent mix blending
-  &::before {
-    position: absolute;
-    inset: 0;
-    content: "";
-    background-color: rgba(var(--callout-color), 0.1);
-    mix-blend-mode: hard-light;
-  }
+// Isolate background for consistent mix blending
+body:not(.callouts-outlined) .callout::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background-color: rgba(var(--callout-color), 0.1);
+  mix-blend-mode: hard-light;
 }
 
 .markdown-source-view.mod-cm6 .cm-callout .edit-block-button {
@@ -98,10 +99,6 @@
 
 // Support for minimal theme outlined callouts
 .callouts-outlined .callout {
-  &::before {
-    background-color: unset;
-  }
-
   .callout-title {
     margin-top: calc(var(--callout-spacer-y) * -1.65);
     margin-left: calc(var(--callout-spacer-x) * -0.3);
