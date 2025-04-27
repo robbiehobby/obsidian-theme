@@ -34,6 +34,7 @@
   "minimal-style@@h6-variant": "normal",
   "minimal-style@@h6-weight": 500,
   "minimal-style@@heading-spacing": "2rem",
+  "minimal-style@@hl1@@dark": "#2F333C",
   "minimal-style@@hl2@@dark": "#024488",
   "minimal-style@@list-indent": 2,
   "minimal-style@@list-spacing": 0.12,
