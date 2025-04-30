@@ -15,3 +15,17 @@
 .canvas-path-label {
   font-size: var(--font-ui-small);
 }
+
+.canvas-node-content.markdown-embed {
+  .markdown-preview-view {
+    scrollbar-gutter: auto;
+  }
+
+  &:not(.is-loaded) {
+    text-align: center;
+  }
+
+  .markdown-embed-content > .markdown-preview-view {
+    padding: 0;
+  }
+}
