@@ -7,6 +7,10 @@ body.obsidian-app {
   --line-height-tight: var(--line-height-normal);
 }
 
+::selection {
+  color: #fff;
+}
+
 ::spelling-error {
   text-decoration: wavy var(--color-red) underline;
   text-decoration-thickness: 1px;

@@ -1,10 +1,8 @@
-@use "component/callout";
-@use "component/canvas";
-@use "component/code";
-@use "component/embed";
-@use "component/table";
-@use "component/text";
+@use "color/mode";
 @use "component/ui";
-
-// Palettes
-@use "palette/one-dark";
+@use "component/text";
+@use "component/table";
+@use "component/code";
+@use "component/callout";
+@use "component/embed";
+@use "component/canvas";
