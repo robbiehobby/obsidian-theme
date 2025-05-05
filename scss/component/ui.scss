@@ -1,3 +1,7 @@
+.tree-item-children {
+  border-inline-start-color: var(--border-color);
+}
+
 .nav-folder.is-collapsed > .tree-item-self,
 .nav-file-title {
   .tree-item-icon {

@@ -1,8 +1,5 @@
 body.obsidian-app {
-  --code-border-color: var(--divider-color);
   --code-border-width: 1px;
-  --code-function: var(--color-blue);
-  --code-keyword: var(--color-purple);
   --code-spacer-x: calc(var(--p-spacing) * 0.9);
   --code-spacer-y: calc(var(--p-spacing) * 0.75);
 }
@@ -27,11 +24,6 @@ body.obsidian-app {
   pre {
     white-space: pre;
   }
-}
-
-.HyperMD-codeblock,
-.markdown-rendered pre {
-  --code-border-color: color-mix(in oklab, var(--code-background) 90%, white);
 }
 
 .HyperMD-codeblock,
