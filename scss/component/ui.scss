@@ -1,5 +1,5 @@
 .tree-item-children {
-  border-inline-start-color: var(--border-color);
+  border-inline-start-color: var(--indentation-guide-color, var(--nav-indentation-guide-width));
 }
 
 .nav-folder.is-collapsed > .tree-item-self,
