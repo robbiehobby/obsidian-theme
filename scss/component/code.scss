@@ -15,6 +15,7 @@ body.obsidian-app {
 
   pre {
     padding: var(--code-spacer-y) var(--code-spacer-x);
+    border-color: var(--background-modifier-border);
     box-shadow: var(--shadow-s);
   }
 }

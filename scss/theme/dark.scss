@@ -9,8 +9,9 @@
   --ui-background-2: #0e121c; // Secondary
   --ui-background-3: #191923; // Row
   --ui-background-4: #22242e; // Guide
-  --ui-background-5: #214283; // Selection
-  --ui-background-6: #1a3469; // Highlight
+  --ui-background-5: #283246; // Highlight
+  --ui-background-6: #214283; // Selection
+  --ui-background-7: #652020; // Danger
 
   --ui-border-1: #636669; // Indent
   --ui-border-2: #393b40; // Active Indent
@@ -43,18 +44,18 @@
   --color-red-900: #900;
   --color-red-950: #6b0000;
 
-  --color-green-50: #f4fbf6;
-  --color-green-100: #ecf8f0;
-  --color-green-200: #d2efdc;
-  --color-green-300: #bce7cb;
-  --color-green-400: #9edcb3;
-  --color-green-500: #80d19d; // Base
-  --color-green-500-rgb: 128, 209, 157;
-  --color-green-600: #57c27c;
-  --color-green-700: #3eac65;
-  --color-green-800: #348e53;
-  --color-green-900: #26693d;
-  --color-green-950: #1a472a;
+  --color-green-50: #e4fcfa;
+  --color-green-100: #c8f9f4;
+  --color-green-200: #92f2ea;
+  --color-green-300: #5becdf;
+  --color-green-400: #19d2c2;
+  --color-green-500: #16baac; // Base
+  --color-green-500-rgb: 22, 186, 172;
+  --color-green-600: #12968b;
+  --color-green-700: #0d6d65;
+  --color-green-800: #094944;
+  --color-green-900: #042422;
+  --color-green-950: #021211;
 
   --color-yellow-50: #fff8f0;
   --color-yellow-100: #fff4e5;
@@ -121,6 +122,19 @@
   --color-orange-900: #963403;
   --color-orange-950: #642302;
 
+  --color-violet-50: #f0f0ff;
+  --color-violet-100: #e5e5ff;
+  --color-violet-200: #c7c7ff;
+  --color-violet-300: #adadff;
+  --color-violet-400: #9494ff;
+  --color-violet-500: #7878ff; // Base
+  --color-violet-500-rgb: 120, 120, 255;
+  --color-violet-600: #2e2eff;
+  --color-violet-700: #0000e0;
+  --color-violet-800: #000094;
+  --color-violet-900: #00004d;
+  --color-violet-950: #000024;
+
   --color-pink-50: #fcf7fc;
   --color-pink-100: #f9ecf7;
   --color-pink-200: #f4ddf1;
@@ -161,4 +175,5 @@
 
   --shadow-s: 0px 4px 15px rgb(0 0 0 / 15%);
   --scrollbar-color: #80808059 transparent;
+  --code-border-color: rgb(255 255 255 / 15%);
 }
