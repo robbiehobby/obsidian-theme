@@ -34,7 +34,7 @@ body.obsidian-app {
 button.copy-code-button {
   display: inline-block !important;
   background-color: transparent !important;
-  opacity: 0.6;
+  opacity: 0.2;
   transition: opacity 0.1s linear;
 
   svg.svg-icon {
@@ -46,4 +46,8 @@ button.copy-code-button {
   &:has(.lucide-check) {
     opacity: 1;
   }
+}
+
+.markdown-source-view.mod-cm6 .code-block-flair:has(.lucide-copy) {
+  display: none;
 }
