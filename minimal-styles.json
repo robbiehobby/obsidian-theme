@@ -2,6 +2,7 @@
   "minimal-advanced@@font-ui-small": 12.5,
   "minimal-advanced@@font-ui-smaller": 11.5,
   "minimal-style@@base@@dark": "#0e121c",
+  "minimal-style@@bg2@@dark": "#131825",
   "minimal-style@@bg3@@dark": "#272a30",
   "minimal-style@@blockquote-background-color@@dark": "#131825",
   "minimal-style@@blockquote-border-color@@dark": "#1f263d",
