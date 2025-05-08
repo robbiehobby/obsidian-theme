@@ -20,12 +20,16 @@
   --list-marker-color: rgb(var(--callout-color));
   --text-selection: rgba(var(--callout-color), 0.3);
 
-  &[data-callout="attention"] {
+  &:is([data-callout="attention"]) {
     --callout-color: var(--color-red-rgb);
   }
 
-  &[data-callout="missing"] {
+  &:is([data-callout="missing"]) {
     --callout-color: var(--color-orange-rgb);
+  }
+
+  &:is([data-callout="cite"], [data-callout="quote"], [data-callout^="gray"]) {
+    --callout-color: var(--color-gray-rgb);
   }
 }
 

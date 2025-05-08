@@ -1,8 +1,11 @@
 @use "theme/dark";
-@use "component/ui";
-@use "component/text";
-@use "component/table";
-@use "component/code";
+
+// Components
 @use "component/callout";
-@use "component/embed";
 @use "component/canvas";
+@use "component/code";
+@use "component/embed";
+@use "component/file";
+@use "component/table";
+@use "component/text";
+@use "component/token";

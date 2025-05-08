@@ -1,8 +1,3 @@
-* {
-  scrollbar-color: var(--scrollbar-color);
-  scrollbar-width: thin;
-}
-
 .tree-item-children {
   border-inline-start-color: var(--indentation-guide-color, var(--nav-indentation-guide-width));
 }
@@ -23,25 +18,4 @@
     color: var(--nav-file-tag-color-active);
     outline-color: var(--nav-file-tag-color-active);
   }
-}
-
-@keyframes flashing {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-
-  25%,
-  75% {
-    opacity: 0.5;
-  }
-}
-
-.is-flashing {
-  background-color: initial !important;
-  border-radius: initial;
-  mix-blend-mode: initial;
-  transition: initial;
-  animation: flashing 1s both 1;
 }

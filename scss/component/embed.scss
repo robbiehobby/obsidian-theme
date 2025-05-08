@@ -36,6 +36,8 @@ body.obsidian-app {
 }
 
 .internal-query {
+  box-shadow: var(--shadow-s);
+
   .internal-query-header {
     padding-block: var(--size-4-3);
   }
