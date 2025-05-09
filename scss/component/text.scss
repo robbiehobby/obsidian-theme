@@ -5,6 +5,7 @@ body.obsidian-app {
   --font-smallest: 11.5px;
   --inline-title-margin-bottom: var(--heading-spacing);
   --line-height-tight: var(--line-height-normal);
+  --link-unresolved-decoration-style: dotted;
 }
 
 * {
@@ -97,7 +98,7 @@ body.obsidian-app {
 }
 
 del {
-  text-decoration: underline wavy var(--text-strike-color) 0.5px;
+  text-decoration: underline wavy var(--text-strikethrough-color) 0.5px;
 }
 
 .footnotes {
