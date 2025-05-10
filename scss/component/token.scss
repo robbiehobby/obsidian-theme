@@ -17,6 +17,10 @@ body.obsidian-app {
     color: var(--color-green);
   }
 
+  &.comment {
+    font-style: italic;
+  }
+
   &.important {
     font-weight: var(--font-normal);
   }

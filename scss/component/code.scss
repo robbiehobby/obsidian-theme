@@ -2,6 +2,7 @@ body.obsidian-app {
   --code-border-width: 1px;
   --code-spacer-x: calc(var(--p-spacing) * 0.9);
   --code-spacer-y: calc(var(--p-spacing) * 0.75);
+  --code-spacer-offset: calc(var(--code-spacer-x) - var(--code-spacer-y));
 }
 
 .markdown-rendered {
@@ -31,8 +32,10 @@ body.obsidian-app {
   padding-inline-start: var(--code-spacer-x);
 }
 
-button.copy-code-button {
+.markdown-rendered button.copy-code-button {
   display: inline-block !important;
+  margin: var(--size-4-2);
+  margin-inline-end: calc(var(--size-4-2) - var(--code-spacer-offset));
   background-color: transparent !important;
   opacity: 0.2;
   transition: opacity 0.1s linear;
