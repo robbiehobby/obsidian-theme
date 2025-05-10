@@ -125,6 +125,16 @@ body:not(.callouts-outlined) .callout::before {
   background-color: var(--background-primary);
 }
 
+// Support for minimal theme list cards in callouts
+.list-cards.markdown-preview-view .callout div > ul > li {
+  padding: calc(var(--cards-padding) * 0.5) calc(var(--cards-padding) * 0.75);
+  border-color: rgb(var(--callout-color), 0.1);
+
+  &:hover {
+    border-color: rgb(var(--callout-color), 0.2);
+  }
+}
+
 // Additional callout style variants
 @each $color in red, orange, yellow, green, cyan, blue, purple, pink, gray {
   .callout[data-callout="#{'' + $color}"],
